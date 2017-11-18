@@ -15,5 +15,6 @@ Add tabs to the user interface
 
 [x] add top level tabs
 [x] refactor into Nav component
-[-] add tab body
+[-] add tab body via pages
 [-] add active state to tabs
+[-] hide and show page based on state (conditional rendering)
