@@ -1,14 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const Nav = ({ activeTab, onTabChange }) => {
+const Nav = () => {
   return (
     <nav className="App-nav">
       <ul>
-        <li className={`App-nav-item ${activeTab === 0 && 'selected'}`}>
-          <a onClick={() => onTabChange(0)}>Items</a>
+        <li className="App-nav-item">
+          <NavLink exact activeClassName="selected" to="/">
+            Items
+          </NavLink>
         </li>
-        <li className={`App-nav-item ${activeTab === 1 && 'selected'}`}>
-          <a onClick={() => onTabChange(1)}>Cart</a>
+        <li className="App-nav-item">
+          <NavLink activeClassName="selected" to="/cart">
+            Cart
+          </NavLink>
         </li>
       </ul>
     </nav>
