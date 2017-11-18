@@ -55,3 +55,10 @@ Add Routing
 
 [x] Add React Router
 [x] Create unique route for cart
+
+### Challenge 6
+
+Refactoring 
+
+[x] Use Functional SetState for updating state
+[x] Create separate api
