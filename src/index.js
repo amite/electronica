@@ -6,11 +6,3 @@ import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 registerServiceWorker()
-
-/*
-
-Challenge 2
-
-Add tabs to the user interface
-
-*/
