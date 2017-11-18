@@ -12,3 +12,8 @@ Create multiple directories that represent separation of concerns
 ### Challenge 2
 
 Add tabs to the user interface
+
+[-] add top level tabs
+[-] refactor into Nav component
+[-] add tab body
+[-] add active state to tabs
