@@ -8,3 +8,7 @@ Basic E-Commerce App project for Beginners to React
 
 Organise the project without breaking it.
 Create multiple directories that represent separation of concerns
+
+### Challenge 2
+
+Add tabs to the user interface

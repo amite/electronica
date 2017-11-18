@@ -11,6 +11,6 @@ registerServiceWorker()
 
 Challenge 2
 
-Organise the project without breaking it
+Add tabs to the user interface
 
 */
