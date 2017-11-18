@@ -5,13 +5,23 @@ import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
 
 class App extends Component {
+  state = {
+    activeTab: 0
+  }
+
+  handleTabChange = index => {
+    this.setState({
+      activeTab: index
+    })
+  }
+
   render() {
+    let { activeTab } = this.state
     return (
       <div className="App">
-        <Nav />
+        <Nav activeTab={activeTab} onTabChange={this.handleTabChange} />
         <main className="App-content">
-          <ItemPage />
-          <CartPage />
+          {activeTab == 0 ? <ItemPage /> : <CartPage />}
         </main>
       </div>
     )

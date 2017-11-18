@@ -1,14 +1,14 @@
 import React from 'react'
 
-const Nav = () => {
+const Nav = ({ activeTab, onTabChange }) => {
   return (
     <nav className="App-nav">
       <ul>
         <li className="App-nav-item">
-          <a>Items</a>
+          <a onClick={() => onTabChange(0)}>Items</a>
         </li>
         <li className="App-nav-item">
-          <a>Cart</a>
+          <a onClick={() => onTabChange(1)}>Cart</a>
         </li>
       </ul>
     </nav>
