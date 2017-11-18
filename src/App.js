@@ -53,6 +53,16 @@ class App extends Component {
     })
   }
 
+  handleRemove = item => {
+    let index = this.state.cart.indexOf(item.key)
+    this.setState({
+      cart: [
+        ...this.state.cart.slice(0, index),
+        ...this.state.cart.slice(index + 1)
+      ]
+    })
+  }
+
   handleTabChange = index => {
     this.setState({
       activeTab: index
@@ -77,7 +87,13 @@ class App extends Component {
       }
     })
 
-    return <CartPage items={cartItems} onAddOne={this.handleAddToCart} />
+    return (
+      <CartPage
+        items={cartItems}
+        onAddOne={this.handleAddToCart}
+        onRemoveOne={this.handleRemove}
+      />
+    )
   }
 
   renderContent() {
