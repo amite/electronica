@@ -36,4 +36,14 @@ Rendering Data from Firestore
 [x] Adding firestore integration
 [x] Using React component lifecycle to make api call
 [x] Rendering items from firestore
-[-] Adding a loading spinner
+[x] Adding a loader component
+
+
+### Challenge 5
+
+Add Item to cart
+
+[-] Write Event handler
+[-] Logic for adding item
+[-] Logic for adding quantity
+[-] Show CartPage
