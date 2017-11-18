@@ -43,7 +43,8 @@ Rendering Data from Firestore
 
 Add Item to cart
 
-[-] Write Event handler
-[-] Logic for adding item
-[-] Logic for adding quantity
-[-] Show CartPage
+[x] Write Event handler
+[x] Logic for adding item
+[x] Logic for adding quantity
+[x] Show CartPage
+[x] Add and remove single item

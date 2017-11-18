@@ -2,7 +2,7 @@ import React from 'react'
 import './CartPage.css'
 import Item from '../components/Item'
 
-function CartPage({ items }) {
+function CartPage({ items, onAddOne }) {
   return items ? (
     <ul className="CartPage-items">
       {items.map(item => (
@@ -11,7 +11,12 @@ function CartPage({ items }) {
             <div className="CartItem-controls">
               <button className="CartItem-removeOne">&ndash;</button>
               <span className="CartItem-count">{item.count}</span>
-              <button className="CartItem-addOne">+</button>
+              <button
+                onClick={() => onAddOne(item)}
+                className="CartItem-addOne"
+              >
+                +
+              </button>
             </div>
           </Item>
         </li>

@@ -77,7 +77,7 @@ class App extends Component {
       }
     })
 
-    return <CartPage items={cartItems} />
+    return <CartPage items={cartItems} onAddOne={this.handleAddToCart} />
   }
 
   renderContent() {
