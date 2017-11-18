@@ -48,3 +48,10 @@ Add Item to cart
 [x] Logic for adding quantity
 [x] Show CartPage
 [x] Add and remove single item
+
+### Challenge 6
+
+Add Routing
+
+[x] Add React Router
+[x] Create unique route for cart
