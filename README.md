@@ -13,7 +13,7 @@ Create multiple directories that represent separation of concerns
 
 Add tabs to the user interface
 
-[-] add top level tabs
-[-] refactor into Nav component
+[x] add top level tabs
+[x] refactor into Nav component
 [-] add tab body
 [-] add active state to tabs
