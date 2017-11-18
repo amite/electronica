@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
 import { db } from './firebase'
+import { getCartItems, getCartTotal } from './api'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -49,8 +50,10 @@ class App extends Component {
   }
 
   handleAddToCart = item => {
-    this.setState({
-      cart: [...this.state.cart, item.key]
+    this.setState(prevState => {
+      return {
+        cart: [...prevState.cart, item.key]
+      }
     })
   }
 
@@ -65,22 +68,11 @@ class App extends Component {
   }
 
   renderCart = props => {
-    let itemCounts = this.state.cart.reduce((itemCounts, itemKey) => {
-      itemCounts[itemKey] = itemCounts[itemKey] || 0
-      itemCounts[itemKey]++
-      return itemCounts
-    }, {})
+    const { cart, items } = this.state
+    let cartItems = getCartItems(cart, items)
+    let cartTotal = getCartTotal(cartItems)
 
-    let cartItems = Object.keys(itemCounts).map(itemKey => {
-      // Find the item by its id
-      var item = this.state.items.find(item => item.key === itemKey)
-
-      // Create a new "item" that also has a 'count' property
-      return {
-        ...item,
-        count: itemCounts[itemKey]
-      }
-    })
+    console.log('TOTAL', cartTotal)
 
     return (
       <CartPage

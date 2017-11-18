@@ -31,3 +31,9 @@
 .App-nav-item .selected {
   border-bottom: 2px solid #ffaa3f;
 }
+
+.App-nav-item:last-child {
+  font-size: 20px;
+  color: #999;
+  float: right;
+}

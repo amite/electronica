@@ -15,6 +15,7 @@ const Nav = () => {
             Cart
           </NavLink>
         </li>
+        <li className="App-nav-item">Total: $10000</li>
       </ul>
     </nav>
   )
