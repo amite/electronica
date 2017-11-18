@@ -54,8 +54,6 @@ class App extends Component {
 
   render() {
     let { activeTab, items, loading } = this.state
-    console.log(items)
-
     return (
       <div className="App">
         <Nav activeTab={activeTab} onTabChange={this.handleTabChange} />

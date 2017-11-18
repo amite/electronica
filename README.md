@@ -32,7 +32,8 @@ Rendering list view
 
 Rendering Data from Firestore
 
-[-] Creating firestore app
-[-] Adding firestore integration
-[-] Using React component lifecycle to make api call
-[-] Rendering items from firestore
+[x] Creating firestore app
+[x] Adding firestore integration
+[x] Using React component lifecycle to make api call
+[x] Rendering items from firestore
+[-] Adding a loading spinner
