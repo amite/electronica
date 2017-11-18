@@ -3,6 +3,7 @@ import './styles/App.css'
 import Nav from './components/Nav'
 import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
+import { items } from './static-data'
 
 class App extends Component {
   state = {
@@ -21,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Nav activeTab={activeTab} onTabChange={this.handleTabChange} />
         <main className="App-content">
-          {activeTab == 0 ? <ItemPage /> : <CartPage />}
+          {activeTab === 0 ? <ItemPage items={items} /> : <CartPage />}
         </main>
       </div>
     )
