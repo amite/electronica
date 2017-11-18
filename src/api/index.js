@@ -1,3 +1,19 @@
+export const addToCart = item => prevState => {
+  return {
+    cart: [...prevState.cart, item.key]
+  }
+}
+
+export const removeFromCart = item => prevState => {
+  let index = prevState.cart.indexOf(item.key)
+  return {
+    cart: [
+      ...prevState.cart.slice(0, index),
+      ...prevState.cart.slice(index + 1)
+    ]
+  }
+}
+
 export const getCartItems = (cart, items) => {
   let itemCounts = cart.reduce((itemCounts, itemKey) => {
     itemCounts[itemKey] = itemCounts[itemKey] || 0
