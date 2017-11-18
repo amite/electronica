@@ -23,6 +23,7 @@ Add tabs to the user interface
 
 Rendering list view
 
-[-] adding static mock data
-[-] rendering list view
-[-] extracting common Item component
+[x] adding static mock data
+[x] rendering list view
+[x] extracting common Item component
+[-] Adding PropTypes
