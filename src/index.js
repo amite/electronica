@@ -9,7 +9,7 @@ registerServiceWorker()
 
 /*
 
-Challenge 1
+Challenge 2
 
 Organise the project without breaking it
 
