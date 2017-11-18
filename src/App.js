@@ -21,7 +21,7 @@ class App extends Component {
   onItemsLoaded = querySnapshot => {
     const items = []
     querySnapshot.forEach(doc => {
-      const { name, description, price, img } = doc.data()
+      const { id, name, description, price, img } = doc.data()
       items.push({
         key: doc.id,
         doc, // DocumentSnapshot
@@ -49,7 +49,7 @@ class App extends Component {
 
   handleAddToCart = item => {
     this.setState({
-      cart: [...this.state.cart, item]
+      cart: [...this.state.cart, item.key]
     })
   }
 
@@ -57,6 +57,27 @@ class App extends Component {
     this.setState({
       activeTab: index
     })
+  }
+
+  renderCart() {
+    let itemCounts = this.state.cart.reduce((itemCounts, itemKey) => {
+      itemCounts[itemKey] = itemCounts[itemKey] || 0
+      itemCounts[itemKey]++
+      return itemCounts
+    }, {})
+
+    let cartItems = Object.keys(itemCounts).map(itemKey => {
+      // Find the item by its id
+      var item = this.state.items.find(item => item.key === itemKey)
+
+      // Create a new "item" that also has a 'count' property
+      return {
+        ...item,
+        count: itemCounts[itemKey]
+      }
+    })
+
+    return <CartPage items={cartItems} />
   }
 
   renderContent() {
@@ -72,7 +93,7 @@ class App extends Component {
         )
 
       case 1:
-        return <CartPage items={cart} />
+        return this.renderCart()
     }
   }
 
