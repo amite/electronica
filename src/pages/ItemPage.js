@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import './ItemPage.css'
 import Loader from '../components/Loader'
 
-function ItemPage({ items, loading }) {
+function ItemPage({ items, loading, onAddToCart }) {
   let content
   if (loading) {
     content = <Loader />
@@ -14,7 +14,12 @@ function ItemPage({ items, loading }) {
         {items.map(item => (
           <li key={item.key} className="ItemPage-item">
             <Item item={item}>
-              <button className="Item-addToCart">Add to Cart</button>
+              <button
+                className="Item-addToCart"
+                onClick={() => onAddToCart(item)}
+              >
+                Add to Cart
+              </button>
             </Item>
           </li>
         ))}

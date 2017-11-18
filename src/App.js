@@ -14,7 +14,8 @@ class App extends Component {
   state = {
     activeTab: 0,
     items: [],
-    loading: true
+    loading: true,
+    cart: []
   }
 
   onItemsLoaded = querySnapshot => {
@@ -46,6 +47,12 @@ class App extends Component {
     this.unsubscribeQueryListener()
   }
 
+  handleAddToCart = item => {
+    this.setState({
+      cart: [...this.state.cart, item]
+    })
+  }
+
   handleTabChange = index => {
     this.setState({
       activeTab: index
@@ -59,9 +66,13 @@ class App extends Component {
         <Nav activeTab={activeTab} onTabChange={this.handleTabChange} />
         <main className="App-content">
           {activeTab === 0 ? (
-            <ItemPage loading={loading} items={items} />
+            <ItemPage
+              onAddToCart={this.handleAddToCart}
+              loading={loading}
+              items={items}
+            />
           ) : (
-            <CartPage />
+            <CartPage items={this.state.cart} />
           )}
         </main>
       </div>
