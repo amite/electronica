@@ -26,4 +26,13 @@ Rendering list view
 [x] adding static mock data
 [x] rendering list view
 [x] extracting common Item component
-[-] Adding PropTypes
+[x] Adding PropTypes
+
+### Challenge 4
+
+Rendering Data from Firestore
+
+[-] Creating firestore app
+[-] Adding firestore integration
+[-] Using React component lifecycle to make api call
+[-] Rendering items from firestore
