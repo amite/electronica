@@ -59,22 +59,31 @@ class App extends Component {
     })
   }
 
+  renderContent() {
+    let { activeTab, items, loading, cart } = this.state
+    switch (activeTab) {
+      case 0:
+        return (
+          <ItemPage
+            onAddToCart={this.handleAddToCart}
+            loading={loading}
+            items={items}
+          />
+        )
+
+      case 1:
+        return <CartPage items={cart} />
+    }
+  }
+
   render() {
-    let { activeTab, items, loading } = this.state
     return (
       <div className="App">
-        <Nav activeTab={activeTab} onTabChange={this.handleTabChange} />
-        <main className="App-content">
-          {activeTab === 0 ? (
-            <ItemPage
-              onAddToCart={this.handleAddToCart}
-              loading={loading}
-              items={items}
-            />
-          ) : (
-            <CartPage items={this.state.cart} />
-          )}
-        </main>
+        <Nav
+          activeTab={this.state.activeTab}
+          onTabChange={this.handleTabChange}
+        />
+        <main className="App-content">{this.renderContent()}</main>
       </div>
     )
   }
