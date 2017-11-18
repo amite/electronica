@@ -15,6 +15,14 @@ Add tabs to the user interface
 
 [x] add top level tabs
 [x] refactor into Nav component
-[-] add tab body via pages
-[-] add active state to tabs
-[-] hide and show page based on state (conditional rendering)
+[x] add tab body via pages
+[x] add active state to tabs
+[x] hide and show page based on state (conditional rendering)
+
+### Challenge 3
+
+Rendering list view
+
+[x] adding static mock data
+[x] rendering list view
+[x] extracting common Item component
