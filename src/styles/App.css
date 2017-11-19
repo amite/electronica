@@ -2,38 +2,3 @@
   max-width: 800px;
   margin: 0 auto;
 }
-.App-nav {
-  margin: 20px;
-  padding: 10px;
-  border-bottom: 2px solid #508fca;
-}
-.App-nav ul {
-  padding: 0;
-  margin: 0;
-}
-.App-nav-item {
-  list-style: none;
-  display: inline-block;
-  margin-right: 32px;
-  font-size: 24px;
-  border-bottom: 4px solid transparent;
-}
-.App-content {
-  margin: 0 20px;
-}
-.App-nav-item a {
-  cursor: pointer;
-  text-decoration: none;
-}
-.App-nav-item a:hover {
-  color: #999;
-}
-.App-nav-item .selected {
-  border-bottom: 2px solid #ffaa3f;
-}
-
-.App-nav-item:last-child {
-  font-size: 20px;
-  color: #999;
-  float: right;
-}

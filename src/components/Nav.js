@@ -1,7 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { getCartItems, getCartTotal } from '../api'
+import Total from './Total'
+import './Nav.css'
 
-const Nav = () => {
+const Nav = ({ cart, items }) => {
+  let cartItems = getCartItems(cart, items)
+  let cartTotal = getCartTotal(cartItems).toFixed(2)
+
   return (
     <nav className="App-nav">
       <ul>
@@ -15,7 +21,7 @@ const Nav = () => {
             Cart
           </NavLink>
         </li>
-        <li className="App-nav-item">Total: $10000</li>
+        {cartTotal > 0 && <Total total={cartTotal} />}
       </ul>
     </nav>
   )

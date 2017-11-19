@@ -4,7 +4,7 @@ import Nav from './components/Nav'
 import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
 import { db } from './firebase'
-import { getCartItems, getCartTotal } from './api'
+import { addToCart, removeFromCart, getCartItems } from './api'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -14,7 +14,6 @@ class App extends Component {
   }
 
   state = {
-    activeTab: 0,
     items: [],
     loading: true,
     cart: []
@@ -50,29 +49,16 @@ class App extends Component {
   }
 
   handleAddToCart = item => {
-    this.setState(prevState => {
-      return {
-        cart: [...prevState.cart, item.key]
-      }
-    })
+    this.setState(addToCart(item))
   }
 
   handleRemove = item => {
-    let index = this.state.cart.indexOf(item.key)
-    this.setState({
-      cart: [
-        ...this.state.cart.slice(0, index),
-        ...this.state.cart.slice(index + 1)
-      ]
-    })
+    this.setState(removeFromCart(item))
   }
 
   renderCart = props => {
     const { cart, items } = this.state
     let cartItems = getCartItems(cart, items)
-    let cartTotal = getCartTotal(cartItems)
-
-    console.log('TOTAL', cartTotal)
 
     return (
       <CartPage
@@ -97,7 +83,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
+          <Nav {...this.state} />
           <main className="App-content">
             <Route exact path="/" render={this.renderItems} />
             <Route path="/cart" render={this.renderCart} />

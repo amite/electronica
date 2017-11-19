@@ -11,8 +11,14 @@
   float: left;
 }
 .Item-title {
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 0.4em;
+  color: #4f8eca;
+  letter-spacing: 0.02em;
+}
+
+.Item-description {
+  color: #747370;
 }
 .Item-price {
   text-align: right;
