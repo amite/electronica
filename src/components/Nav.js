@@ -1,15 +1,30 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { getCartItems, getCartTotal } from '../api'
+import Total from './Total'
+import './Nav.css'
 
-const Nav = ({ activeTab, onTabChange }) => {
+const Nav = ({ cart, items }) => {
+  let cartItems = getCartItems(cart, items)
+  let cartTotal = getCartTotal(cartItems).toFixed(2)
+  let numItemsInCart = new Set(cart).size
+
   return (
     <nav className="App-nav">
       <ul>
-        <li className={`App-nav-item ${activeTab === 0 && 'selected'}`}>
-          <a onClick={() => onTabChange(0)}>Items</a>
+        <li className="App-nav-item">
+          <NavLink exact activeClassName="selected" to="/">
+            Items
+          </NavLink>
         </li>
-        <li className={`App-nav-item ${activeTab === 1 && 'selected'}`}>
-          <a onClick={() => onTabChange(1)}>Cart</a>
+        <li className="App-nav-item">
+          <NavLink activeClassName="selected" to="/cart">
+            Cart
+          </NavLink>
         </li>
+        {cartTotal > 0 && (
+          <Total total={cartTotal} numItemsInCart={numItemsInCart} />
+        )}
       </ul>
     </nav>
   )

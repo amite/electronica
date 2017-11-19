@@ -1,27 +1,34 @@
 import React from 'react'
 import './CartPage.css'
+import Item from '../components/Item'
 
-function CartPage() {
-  return (
+function CartPage({ items, onAddOne, onRemoveOne }) {
+  return items.length > 0 ? (
     <ul className="CartPage-items">
-      <li className="CartPage-item">
-        <div className="Item">
-          <div className="Item-left">
-            <img className="Item-image" src="" />
-            <div className="Item-title">Product Name</div>
-            <div className="Item-description">Description</div>
-          </div>
-          <div className="Item-right">
-            <div className="Item-price">Price</div>
+      {items.map(item => (
+        <li key={item.key} className="CartPage-item">
+          <Item item={item}>
             <div className="CartItem-controls">
-              <button className="CartItem-removeOne">&ndash;</button>
-              <span className="CartItem-count">Count</span>
-              <button className="CartItem-addOne">+</button>
+              <button
+                onClick={() => onRemoveOne(item)}
+                className="CartItem-removeOne"
+              >
+                &ndash;
+              </button>
+              <span className="CartItem-count">{item.count}</span>
+              <button
+                onClick={() => onAddOne(item)}
+                className="CartItem-addOne"
+              >
+                +
+              </button>
             </div>
-          </div>
-        </div>
-      </li>
+          </Item>
+        </li>
+      ))}
     </ul>
+  ) : (
+    <p>Your shopping cart is empty</p>
   )
 }
 

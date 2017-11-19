@@ -3,27 +3,71 @@ import './styles/App.css'
 import Nav from './components/Nav'
 import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
+import { db } from './firebase'
+import { loadItems, addToCart, removeFromCart, getCartItems } from './api'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   state = {
-    activeTab: 0
+    items: [],
+    loading: true,
+    cart: []
   }
 
-  handleTabChange = index => {
-    this.setState({
-      activeTab: index
-    })
+  componentWillMount() {
+    // FIREBASE
+    this.unsubscribeQueryListener = db
+      .collection('items')
+      .onSnapshot(querySnapshot => this.setState(loadItems(querySnapshot)))
+  }
+
+  componentWillUnmount() {
+    // FIREBASE
+    this.unsubscribeQueryListener()
+  }
+
+  handleAddToCart = item => {
+    this.setState(addToCart(item))
+  }
+
+  handleRemove = item => {
+    this.setState(removeFromCart(item))
+  }
+
+  renderCart = props => {
+    const { cart, items } = this.state
+    let cartItems = getCartItems(cart, items)
+
+    return (
+      <CartPage
+        items={cartItems}
+        onAddOne={this.handleAddToCart}
+        onRemoveOne={this.handleRemove}
+      />
+    )
+  }
+
+  renderItems = props => {
+    return (
+      <ItemPage
+        onAddToCart={this.handleAddToCart}
+        loading={this.state.loading}
+        items={this.state.items}
+      />
+    )
   }
 
   render() {
-    let { activeTab } = this.state
     return (
-      <div className="App">
-        <Nav activeTab={activeTab} onTabChange={this.handleTabChange} />
-        <main className="App-content">
-          {activeTab == 0 ? <ItemPage /> : <CartPage />}
-        </main>
-      </div>
+      <Router>
+        <div className="App">
+          <Nav {...this.state} />
+          <main className="App-content">
+            <Route exact path="/" render={this.renderItems} />
+            <Route path="/cart" render={this.renderCart} />
+          </main>
+        </div>
+      </Router>
     )
   }
 }
