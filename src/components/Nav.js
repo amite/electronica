@@ -7,6 +7,7 @@ import './Nav.css'
 const Nav = ({ cart, items }) => {
   let cartItems = getCartItems(cart, items)
   let cartTotal = getCartTotal(cartItems).toFixed(2)
+  let numItemsInCart = new Set(cart).size
 
   return (
     <nav className="App-nav">
@@ -21,7 +22,9 @@ const Nav = ({ cart, items }) => {
             Cart
           </NavLink>
         </li>
-        {cartTotal > 0 && <Total total={cartTotal} />}
+        {cartTotal > 0 && (
+          <Total total={cartTotal} numItemsInCart={numItemsInCart} />
+        )}
       </ul>
     </nav>
   )
