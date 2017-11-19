@@ -32,8 +32,12 @@
 .App-nav-item.total {
   color: #999;
   font-weight: 100;
-  font-size: 18px;
-  margin-top: 4px;
+  font-size: 0.9rem;
+  margin-top: 8px;
   float: right;
   margin-right: 0;
+}
+
+.App-nav-item.total span {
+  font-size: 11px;
 }
