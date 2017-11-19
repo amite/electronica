@@ -13,66 +13,66 @@ Create multiple directories that represent separation of concerns
 
 Add tabs to the user interface
 
-[x] add top level tabs
-[x] refactor into Nav component
-[x] add tab body via pages
-[x] add active state to tabs
-[x] hide and show page based on state (conditional rendering)
+- [x] add top level tabs
+- [x] refactor into Nav component
+- [x] add tab body via pages
+- [x] add active state to tabs
+- [x] hide and show page based on state (conditional rendering)
 
 ### Challenge 3
 
 Rendering list view
 
-[x] adding static mock data
-[x] rendering list view
-[x] extracting common Item component
-[x] extracting common Item component
-[x] Adding PropTypes
+- [x] adding static mock data
+- [x] rendering list view
+- [x] extr- acting common Item component
+- [x] Adding PropTypes
 
 ### Challenge 4
 
 Rendering Data from Firestore
 
-[x] Creating firestore app
-[x] Adding firestore integration
-[x] Using React component lifecycle to make api call
-[x] Rendering items from firestore
-[x] Adding a loader component
+- [x] Creating firestore app
+- [x] Adding firestore integration
+- [x] Using React component lifecycle to make api call
+- [x] Rendering items from firestore
+- [x] Adding a loader component
 
 
 ### Challenge 5
 
 Add Item to cart
 
-[x] Write Event handler
-[x] Logic for adding item
-[x] Logic for adding quantity
-[x] Show CartPage
-[x] Add and remove single item
+- [x] Write Event handler
+- [x] Logic for adding item
+- [x] Logic for adding quantity
+- [x] Show CartPage
+- [x] Add and remove single item
 
 ### Challenge 6
 
 Add Routing
 
-[x] Add React Router
-[x] Create unique route for cart
+- [x] Add React Router
+- [x] Create unique route for cart
 
 ### Challenge 6
 
 Refactoring 
 
-[x] Use Functional SetState for updating state
-[x] Create separate api
+- [x] Use Functional SetState for updating state
+- [x] Create separate api
 
 ### Challenge 7
 
 Add Total Panel in Nav 
 
-[x] Show items subtotal
-[x] Show number of unique items in cart
+- [x] Show items subtotal
+- [x] Show number of unique items in cart
 
 ### Challenge 8
 
 Refactor firestore api
 
-[x] Load Data via Api
+- [x] Load Data via Api
+
