@@ -4,43 +4,21 @@ import Nav from './components/Nav'
 import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
 import { db } from './firebase'
-import { addToCart, removeFromCart, getCartItems } from './api'
+import { loadItems, addToCart, removeFromCart, getCartItems } from './api'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.itemsRef = db.collection('items')
-  }
-
   state = {
     items: [],
     loading: true,
     cart: []
   }
 
-  onItemsLoaded = querySnapshot => {
-    const items = []
-    querySnapshot.forEach(doc => {
-      const { id, name, description, price, img } = doc.data()
-      items.push({
-        key: doc.id,
-        doc, // DocumentSnapshot
-        name,
-        description,
-        price,
-        img
-      })
-    })
-    this.setState({
-      items,
-      loading: false
-    })
-  }
-
   componentWillMount() {
     // FIREBASE
-    this.unsubscribeQueryListener = this.itemsRef.onSnapshot(this.onItemsLoaded)
+    this.unsubscribeQueryListener = db
+      .collection('items')
+      .onSnapshot(querySnapshot => this.setState(loadItems(querySnapshot)))
   }
 
   componentWillUnmount() {

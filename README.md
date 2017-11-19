@@ -69,3 +69,9 @@ Add Total Panel in Nav
 
 [x] Show items subtotal
 [x] Show number of unique items in cart
+
+### Challenge 8
+
+Refactor firestore api
+
+[x] Load Data via Api

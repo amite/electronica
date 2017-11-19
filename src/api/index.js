@@ -4,6 +4,26 @@ export const addToCart = item => prevState => {
   }
 }
 
+export const loadItems = querySnapshot => prevState => {
+  const items = []
+  querySnapshot.forEach(doc => {
+    const { id, name, description, price, img } = doc.data()
+    items.push({
+      key: doc.id,
+      doc, // DocumentSnapshot
+      name,
+      description,
+      price,
+      img
+    })
+  })
+
+  return {
+    items,
+    loading: false
+  }
+}
+
 export const removeFromCart = item => prevState => {
   let index = prevState.cart.indexOf(item.key)
   return {
