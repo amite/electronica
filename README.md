@@ -26,6 +26,7 @@ Rendering list view
 [x] adding static mock data
 [x] rendering list view
 [x] extracting common Item component
+[x] extracting common Item component
 [x] Adding PropTypes
 
 ### Challenge 4
