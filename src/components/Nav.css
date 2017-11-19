@@ -30,9 +30,9 @@
 }
 
 .App-nav-item.total {
-  color: #999;
+  color: rgb(114, 113, 113);
   font-weight: 100;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-top: 8px;
   float: right;
   margin-right: 0;
@@ -40,4 +40,6 @@
 
 .App-nav-item.total span {
   font-size: 11px;
+  color: tomato;
+  font-weight: 400;
 }

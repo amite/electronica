@@ -4,7 +4,7 @@ const Total = ({ total, numItemsInCart }) => {
   let itemString = numItemsInCart > 1 ? 'items' : 'item'
   return (
     <li className="App-nav-item total">
-      Total: ${total}{' '}
+      subtotal: ${total}{' '}
       <span>
         ({numItemsInCart} {itemString})
       </span>

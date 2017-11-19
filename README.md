@@ -62,3 +62,10 @@ Refactoring
 
 [x] Use Functional SetState for updating state
 [x] Create separate api
+
+### Challenge 7
+
+Add Total Panel in Nav 
+
+[x] Show items subtotal
+[x] Show number of unique items in cart
