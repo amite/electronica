@@ -76,3 +76,11 @@ Refactor firestore api
 
 - [x] Load Data via Api
 
+
+### Challenge 9
+
+Make cart persistent
+
+- [x] set initial cart state from localstorage 
+- [x] Load Data via localstorage
+- [x] Add persistence via api

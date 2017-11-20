@@ -26,7 +26,6 @@ export const loadItems = querySnapshot => prevState => {
     const { id, name, description, price, img } = doc.data()
     items.push({
       key: doc.id,
-      // doc, // DocumentSnapshot
       name,
       description,
       price,
