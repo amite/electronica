@@ -9,16 +9,15 @@ export const removeFromCart = item => prevState => {
 
   console.log('cart before removal', prevState.cart)
 
-  var arr2 = prevState.cart.filter(function(item, ind) {
-    if (index !== ind) {
-      return true
-    }
-  })
+  let newCart = [
+    ...prevState.cart.slice(0, index),
+    ...prevState.cart.slice(index + 1)
+  ]
 
-  console.log('cart after removal', arr2)
+  console.log('cart after removal', newCart)
 
   return {
-    cart: arr2
+    cart: newCart
   }
 }
 
