@@ -2,7 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Electronica
 
-Basic E-Commerce App project for Beginners to React
+Basic E-Commerce App project for Beginners to React.
+This app also features loading product data from firestore and persisting cart data to localstorage. 
 
 ### Challenge 1
 
