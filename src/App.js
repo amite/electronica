@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     items: [],
     loading: true,
-    cart: []
+    cart: this.props.cart
   }
 
   componentWillMount() {
@@ -37,6 +37,8 @@ class App extends Component {
   renderCart = props => {
     const { cart, items } = this.state
     let cartItems = getCartItems(cart, items)
+
+    console.log('CARTITEMS', cartItems)
 
     return (
       <CartPage
