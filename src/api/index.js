@@ -1,20 +1,11 @@
 export const addToCart = item => prevState => {
-  let newCart = [...prevState.cart, item.key]
-  saveCart(newCart)
   return {
-    cart: newCart
+    cart: [...prevState.cart, item.key]
   }
 }
 
 export const removeFromCart = item => prevState => {
   let index = prevState.cart.indexOf(item.key)
-
-  let newCart = [
-    ...prevState.cart.slice(0, index),
-    ...prevState.cart.slice(index + 1)
-  ]
-
-  saveCart(newCart)
 
   return {
     cart: [
@@ -24,7 +15,7 @@ export const removeFromCart = item => prevState => {
   }
 }
 
-const saveCart = newCart =>
+export const saveCart = newCart =>
   localStorage.setItem('cart', JSON.stringify(newCart))
 
 export const loadItems = querySnapshot => prevState => {

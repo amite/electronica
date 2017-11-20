@@ -4,7 +4,13 @@ import Nav from './components/Nav'
 import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
 import { db } from './firebase'
-import { loadItems, addToCart, removeFromCart, getCartItems } from './api'
+import {
+  saveCart,
+  loadItems,
+  addToCart,
+  removeFromCart,
+  getCartItems
+} from './api'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -27,11 +33,15 @@ class App extends Component {
   }
 
   handleAddToCart = item => {
-    this.setState(addToCart(item))
+    this.setState(addToCart(item), () => {
+      saveCart(this.state.cart)
+    })
   }
 
   handleRemove = item => {
-    this.setState(removeFromCart(item))
+    this.setState(removeFromCart(item), () => {
+      saveCart(this.state.cart)
+    })
   }
 
   renderCart = props => {
