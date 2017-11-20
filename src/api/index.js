@@ -7,11 +7,18 @@ export const addToCart = item => prevState => {
 export const removeFromCart = item => prevState => {
   let index = prevState.cart.indexOf(item.key)
 
+  console.log('cart before removal', prevState.cart)
+
+  var arr2 = prevState.cart.filter(function(item, ind) {
+    if (index !== ind) {
+      return true
+    }
+  })
+
+  console.log('cart after removal', arr2)
+
   return {
-    cart: [
-      ...prevState.cart.slice(0, index),
-      ...prevState.cart.slice(index + 1)
-    ]
+    cart: arr2
   }
 }
 

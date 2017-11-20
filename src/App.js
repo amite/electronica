@@ -18,7 +18,7 @@ class App extends Component {
   state = {
     items: [],
     loading: true,
-    cart: loadCart()
+    cart: []
   }
 
   componentWillMount() {
@@ -34,15 +34,11 @@ class App extends Component {
   }
 
   handleAddToCart = item => {
-    this.setState(addToCart(item), () => {
-      saveCart(this.state.cart)
-    })
+    this.setState(addToCart(item))
   }
 
   handleRemove = item => {
-    this.setState(removeFromCart(item), () => {
-      saveCart(this.state.cart)
-    })
+    this.setState(removeFromCart(item))
   }
 
   renderCart = props => {
