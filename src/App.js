@@ -5,6 +5,7 @@ import ItemPage from './pages/ItemPage'
 import CartPage from './pages/CartPage'
 import { db } from './firebase'
 import {
+  loadCart,
   saveCart,
   loadItems,
   addToCart,
@@ -17,7 +18,7 @@ class App extends Component {
   state = {
     items: [],
     loading: true,
-    cart: this.props.cart
+    cart: loadCart()
   }
 
   componentWillMount() {
@@ -47,8 +48,6 @@ class App extends Component {
   renderCart = props => {
     const { cart, items } = this.state
     let cartItems = getCartItems(cart, items)
-
-    console.log('CARTITEMS', cartItems)
 
     return (
       <CartPage

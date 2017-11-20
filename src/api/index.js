@@ -18,6 +18,8 @@ export const removeFromCart = item => prevState => {
 export const saveCart = newCart =>
   localStorage.setItem('cart', JSON.stringify(newCart))
 
+export const loadCart = () => JSON.parse(localStorage.getItem('cart')) || []
+
 export const loadItems = querySnapshot => prevState => {
   const items = []
   querySnapshot.forEach(doc => {
